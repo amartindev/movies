@@ -76,8 +76,8 @@ export default function Hero() {
         loading="eager"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#020024] to-transparent"></div>
-      <div className="absolute bottom-4 left-4 text-white flex justify-between w-full md:flex-row sm:flex-col">
-        <div className="flex flex-col p-5 max-w-70">
+      <div className="absolute bottom-4 left-4 text-white md:flex justify-between w-full md:flex-row sm:block">
+        <div className="flex flex-col p-5 max-w-70 sm:pt-12">
           <h1 className="text-3xl font-bold">{currentMovie.title}</h1>
           <p className="mt-2 text-sm">{currentMovie.overview}</p>
         </div>
