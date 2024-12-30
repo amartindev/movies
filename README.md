@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movies App 🎬
 
-## Getting Started
+Esta es una aplicación web simple para buscar películas utilizando la API de The Movie Database (TMDb), desarrollada con Next.js.
 
-First, run the development server:
+## Version Live
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+https://antonio-movies.netlify.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Características
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   **Búsqueda de Películas:** Permite buscar películas por título.
+-   **Visualización de Resultados:** Muestra la información básica de las películas encontradas (título, descripción, imagen).
+-   **Diseño Responsivo:** Se adapta a diferentes tamaños de pantalla.
+-   **Desarrollado con Next.js:** Aprovecha las ventajas del framework React para la creación de aplicaciones web.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tecnologías Utilizadas
 
-## Learn More
+-   React
+-   Next.js
+-   HTML
+-   Tailwind CSS
+-   JavaScript
+-   API de The Movie Database (TMDb)
 
-To learn more about Next.js, take a look at the following resources:
+## Configuración
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para ejecutar esta aplicación correctamente, necesitas seguir estos pasos:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.  **Clona el repositorio:**
+    ```bash
+    git clone https://github.com/amartindev/movies.git
+    cd movies
+    ```
 
-## Deploy on Vercel
+2.  **Instala las dependencias:**
+    ```bash
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3.  **Obtén un token de API de TMDb:**
+    -   Ve al sitio web de [The Movie Database](https://www.themoviedb.org/).
+    -   Crea una cuenta o inicia sesión si ya tienes una.
+    -   Dirígete a la sección de configuración de la API (normalmente en "Settings" -> "API").
+    -   Genera un nuevo token de API (v3 auth).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4.  **Crea un archivo `.env.local`:**
+    -   En la raíz del proyecto, crea un nuevo archivo llamado `.env.local`.
+    -   Dentro del archivo `.env.local`, agrega la siguiente línea, reemplazando `...` con el token y la api key que obtuviste de TMDb:
+
+        ```env
+        NEXT_PUBLIC_TMDB_API_KEY=...
+        NEXT_PUBLIC_TMDB_ACCESS_TOKEN=...
+        ```
+
+5.  **Ejecuta el servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
+    Esto iniciará el servidor de desarrollo de Next.js y podrás acceder a la aplicación en tu navegador en la dirección que se te indique en la consola (normalmente `http://localhost:3000`).
