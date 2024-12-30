@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { Movie } from '../../../src/lib/types';
+import { Movie, Video } from '../../../src/lib/types';
 import Image from 'next/image';
 import { Loader2 } from 'lucide-react';
 import { Favorite } from '@mui/icons-material';
@@ -20,7 +20,7 @@ export default function MovieDetails() {
 
   useEffect(() => {
     if (!id) return;
-
+  
     const fetchMovieDetails = async () => {
       setLoading(true);
       try {
@@ -34,7 +34,7 @@ export default function MovieDetails() {
         );
         const movieData = await movieResponse.json();
         setMovie(movieData);
-
+  
         const videoResponse = await fetch(
           `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
           {
@@ -44,8 +44,8 @@ export default function MovieDetails() {
           }
         );
         const videoData = await videoResponse.json();
-
-        const trailer = videoData.results.find((video: any) => video.site === 'YouTube' && video.type === 'Trailer');
+  
+        const trailer = videoData.results.find((video: Video) => video.site === 'YouTube' && video.type === 'Trailer');
         if (trailer) {
           setTrailerId(trailer.key);
         }
@@ -55,7 +55,7 @@ export default function MovieDetails() {
         setLoading(false);
       }
     };
-
+  
     fetchMovieDetails();
   }, [id]);
 
@@ -98,7 +98,7 @@ export default function MovieDetails() {
 
   return (
     <div className="container mx-auto">
-      <div className="relative w-full h-[520px]">
+      <div className="relative w-full md:h-[520px]">
         <Image
           src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
           alt={movie.title}
@@ -153,7 +153,7 @@ export default function MovieDetails() {
               </div>
             </div>
             <div className="flex flex-wrap gap-7">
-              {movie.genres.map((genre, index) => (
+              {movie.genres?.map((genre, index) => (
                 <button
                   key={index}
                   className="border-2 border-yellow-500 text-yellow-500 py-1 px-5 hover:bg-yellow-500 hover:text-white transition duration-200"

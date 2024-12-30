@@ -15,3 +15,9 @@ export interface RecommendedMovie {
   poster_path: string;
   backdrop_path: string;
 }
+
+export interface Video {
+  site: string;
+  type: string;
+  key: string;
+}

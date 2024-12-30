@@ -23,7 +23,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <main className="container mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+      <main className="container mx-auto p-4 md:grid grid-cols-1 md:grid-cols-4 gap-4 sm:grid-cols-1 sm:block sm:p-4">
         <Categories
           onSearch={handleSearch}
           onCategoryChange={handleCategoryChange}
